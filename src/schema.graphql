@@ -1,0 +1,26 @@
+type Event {
+  id: ID!
+  title: String
+  text: String
+  location: String
+  date: String
+  category: Category
+}
+
+type Category {
+  id: ID!
+  title: String
+}
+
+type Query {
+  events: [Event!]!
+  event(id: ID!): Event
+
+  categories: [Category!]!
+  category(id: ID): Category
+}
+
+type Mutation {
+  createEvent(title: String!, text: String, local: String, date: String, category: ID): Event
+  createCategory(title: String!): Category
+}
